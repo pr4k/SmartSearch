@@ -44,6 +44,8 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script>
         function getParamValue(paramName) {
+            console.log("using href",window.location.href);
+            console.log("using href",window.location.search);
             var url = window.location.search.substring(1); //get rid of "?" in querystring
             var qArray = url.split('&'); //get key-value pairs
             for (var i = 0; i < qArray.length; i++) {
