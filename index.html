@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://code.jquery.com https://cdnjs.cloudflare.com/ajax/libs/popper.js/ https://cdnjs.cloudflare.com/ajax/libs/popper.js/ https://www.googletagmanager.com/ https://salesiq.zoho.com/widget https://www.google-analytics.com/analytics.js https://www.googleadservices.com/pagead/conversion_async.js http://static.hotjar.com/ https://script.hotjar.com/ https://googleads.g.doubleclick.net/pagead/ https://connect.facebook.net/ http://www.googleadservices.com/ https://chat.konverse.ai/">
+    <meta name="robots" content="noindex">
+    <meta name="googlebot" content="noindex">
+    <title>Premium Shared Accommodation on Affordable Rents </title>
+    <meta name="robots" content="noindex, nofollow" />
+    <!-- favicon -->
+    <link rel="icon" href="/assets/images/favicon.png">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <!-- font family -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="/assets/css/config.css?d=20220127" async />
+    <link rel="stylesheet" href="/assets/css/styles.css?d=20220127">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- site header include -->
+    <div class="header include" id="site-header" data-include="header"></div>
+    <section>
+        <div class="smartsearchblock">
+            <embed id="property" src="https://search.colive.com/dev/colivesearch/smartsearch?type=1&isMobile=0&redirectHost=https://qa.colive.com/property" style="width: 100%; height: 3000px">
+                <!-- <embed id="property" src="http://localhost:8000/smartsearch?type=1&isMobile=0&redirectHost=https://qa.colive.com/property" style="width: 100%; height: 3000px"> -->
+        </div>
+    </section>
+    <!-- site footer include -->
+    <div class="footer include" id="site-footer" data-include="footer"></div>
+    <!-- ./Footer -->
+    <script defer src="/assets/js/custom.js?d=2022012"></script>
+    <!-- ./Footer -->
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- jQuery first, then Popper, then Bootstrap JS., owl-carousel2 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script>
+        function getParamValue(paramName) {
+            var url = window.location.search.substring(1); //get rid of "?" in querystring
+            var qArray = url.split('&'); //get key-value pairs
+            for (var i = 0; i < qArray.length; i++) {
+                var pArr = qArray[i].split('='); //split key and value
+                if (pArr[0] == paramName)
+                    return pArr[1]; //return value
+            }
+        }
+        sQuery = getParamValue('sQuery');
+        pId = getParamValue('pId');
+        var url = document.getElementById("property").src;
+        var embedUrl = document.getElementById("property");
+        if (sQuery) {
+            if (pId) {
+                let src = url + '&sQuery=' + sQuery + '&pId=' + pId;
+                embedUrl.setAttribute('src', src);
+            }
+            else {
+                let src = url + '&sQuery=' + sQuery;
+                embedUrl.setAttribute('src', src);
+            }
+        } else {
+            if (pId) {
+                let src = url + '&pId=' + pId
+                embedUrl.setAttribute('src', src);
+            } else {
+                let src = url + '&sQuery=pgs in marathalli'
+                embedUrl.setAttribute('src', src);
+            }
+        }
+    </script>
+    <script>
+        $(document).ready(function () {
+            BindPrimeProperty();
+            setTimeout(function () {
+                $('#liSmartsearch').addClass('active');
+            }, 1000);
+            SourceTypeId = parseInt(getQueryStringValues()["source"]);
+            if (SourceTypeId == 2 || SourceTypeId == 3) {
+                $('.smartsearchblock').css('padding', '0px');
+            }
+        });
+    </script>
+    <!--<script type="text/javascript">
+        function getParamValue(paramName) {
+            var url = window.location.search.substring(1); //get rid of "?" in querystring
+            var qArray = url.split('&'); //get key-value pairs
+            for (var i = 0; i < qArray.length; i++) {
+                var pArr = qArray[i].split('='); //split key and value
+                if (pArr[0] == paramName)
+                    return pArr[1]; //return value
+            }
+        }
+        sQuery = getParamValue('sQuery');
+        pId = getParamValue('pId');
+        var embedUrl = document.getElementById("property");
+        if (sQuery) {
+            pId ?
+                embedUrl.setAttribute('src', 'https://search.colive.com/colivesearch/smartsearch?redirectHost=http://www.colive.com/property&isMobile=1&sQuery=${sQuery}&pId=${pId}') :
+                embedUrl.setAttribute('src', 'https://search.colive.com/colivesearch/smartsearch?redirectHost=http://www.colive.com/property&isMobile=1&sQuery=${sQuery}');
+        } else {
+            pId ? embedUrl.setAttribute('src', 'https://search.colive.com/colivesearch/smartsearch?redirectHost=http://www.colive.com/property&isMobile=1&pId=${pId}') :
+                embedUrl.setAttribute('src', 'https://search.colive.com/colivesearch/smartsearch?redirectHost=http://www.colive.com/property&isMobile=1&sQuery=pgs in marathalli');
+        }
+    </script>-->
+</body>
+</html>
