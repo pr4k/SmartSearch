@@ -98,8 +98,11 @@
             }
         }
         sQuery = getParamValue('sQuery');
+        console.log("Query Params",sQuery);
         pId = getParamValue('pId');
+        console.log("Pid", pId);
         var embedUrl = document.getElementById("property");
+        console.log("Embed URL", embedUrl);
         if (sQuery) {
             pId ?
                 embedUrl.setAttribute('src', 'https://search.colive.com/colivesearch/smartsearch?redirectHost=http://www.colive.com/property&isMobile=1&sQuery=${sQuery}&pId=${pId}') :
