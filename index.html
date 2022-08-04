@@ -49,6 +49,7 @@
             var location = window.location.href;
             console.log("Href location",location)
             var n = location.indexOf('?');
+            console.log("Using Splitt",location.split("?"));
             console.log("Href n",n)
              location = n != -1 ? location.substring(0, n != -1 ? n : s.length) : location;
              console.log("Href after modification location",location)
