@@ -38,6 +38,7 @@ if (sQuery) {
         let src = url + '&sQuery=' + sQuery;
         embedUrl.setAttribute('src', src);
     }
+    console.log("If Search Queryyyy", document.getElementById("property"))
 } else {
     if (pId) {
         let src = url + '&pId=' + pId
@@ -46,4 +47,5 @@ if (sQuery) {
         let src = url + '&sQuery=pgs in marathalli'
         embedUrl.setAttribute('src', src);
     }
+    console.log("If Noo Search Queryyyy", document.getElementById("property"))
 }
