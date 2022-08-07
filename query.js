@@ -25,11 +25,6 @@ sQuery = getParamValue('sQuery');
 console.log("Query Params",sQuery);
 pId = getParamValue('pId');
 console.log("Pid", pId);
-var tag = document.createElement("p");
-var text = document.createTextNode(sQuery);
-tag.appendChild(text);
-var element = document.getElementById("site-header")
-element.appendChild(tag);
 var url = document.getElementById("property").src;
 console.log(" URLL",url);
 var embedUrl = document.getElementById("property");
