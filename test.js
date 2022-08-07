@@ -22,13 +22,13 @@ function getParamValue(paramName) {
     }
 }
 sQuery = getParamValue('sQuery');
-console.log("Query Params",sQuery);
+console.log("test Query Params",sQuery);
 pId = getParamValue('pId');
-console.log("Pid", pId);
+console.log("test Pid", pId);
 var url = document.getElementById("property").src;
-console.log(" URLL",url);
+console.log("test URLL",url);
 var embedUrl = document.getElementById("property");
-console.log("Embed URL", embedUrl)
+console.log("test Embed URL", embedUrl)
 if (sQuery) {
     if (pId) {
         let src = url + '&sQuery=' + sQuery + '&pId=' + pId;
