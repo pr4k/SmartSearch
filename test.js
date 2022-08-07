@@ -1,8 +1,8 @@
 function getParamValue(paramName) {
-    console.log("using href",window.location.href);
-    console.log("using location",window.location.search);
+    // console.log("using href",window.location.href);
+    // console.log("using location",window.location.search);
     var location = window.location.href;
-    console.log("Href location",location)
+    // console.log("Href location",location)
     // var n = location.indexOf('?');
     // console.log("Using Splitt",);
     // console.log("Href n",n)
@@ -11,9 +11,9 @@ function getParamValue(paramName) {
     //  var sublink = location.slice(location.lastIndexOf('/') + 1, location.length);
      
     var s=location.split("?") //split by ?
-    console.log("Href Split location",s)
+    // console.log("Href Split location",s)
     var url = s[1]; //get rid of "?" in querystring
-    console.log("url url url",url);
+    // console.log("url url url",url);
     var qArray = url.split('&'); //get key-value pairs
     for (var i = 0; i < qArray.length; i++) {
         var pArr = qArray[i].split('='); //split key and value

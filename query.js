@@ -29,6 +29,12 @@ var url = document.getElementById("property").src;
 console.log(" URLL",url);
 var embedUrl = document.getElementById("property");
 console.log("Embed URL", embedUrl)
+var tag = document.createElement("p");
+var text = document.createTextNode(sQuery);
+tag.appendChild(text);
+var element = document.getElementById("site-header");
+element.appendChild(tag);
+
 if (sQuery) {
     if (pId) {
         let src = url + '&sQuery=' + sQuery + '&pId=' + pId;
